@@ -34,6 +34,11 @@ const hashGen = () => {
       // "Alan"  => ["A", "l", "a", "n"]
 
       const reversedKey = key.split("").reverse().join("");
+      // agrego algo, vamos a primero verificar si ya existe, porque si ya existe en nuestras hashKeys, deberiamos devolver alguna respuesta
+      if (hashKeys[reversedKey]) {
+        console.log("La clave ya existe");
+        return;
+      }
       hashKeys[reversedKey] = key;
     },
     compare: (key) => {
@@ -52,6 +57,7 @@ const hashGen = () => {
 const keyGenerator = hashGen();
 const keyGeneratorA = hashGen();
 
+keyGenerator.hash("limon");
 keyGenerator.hash("limon");
 
 keyGenerator.compare("limon");
