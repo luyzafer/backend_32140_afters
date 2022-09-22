@@ -110,10 +110,19 @@ class Container {
       if (foundElementIndex === -1) return "Element not found";
       const foundElement = elements[foundElementIndex];
 
-      elements[foundElementIndex] = {
-        ...foundElement,
-        ...newData,
-      };
+      // elements[foundElementIndex] = {
+      //   ...foundElement,
+      //   ...newData,
+      // };
+
+      // otra forma para actualizar dinamicamnete un objeto, recorremos todas las propiedades que llegan en newData usando un for in, y por cada key de newData, con el metodo hasOwnProperty de object, analizamos si foundElement tiene esa key que viene de newData, si la tiene, le asignamos el valor de newData
+      // Ejemplo, si foundElement es un objeto { title: "producto", price: 1000 } y new data {title: "Producto Modificado", pepe: "no deberia guardar"},
+      // recorremos newData, y si title existe en el foundelement, reemplazamos su valor, pero pepe no va a existir, por lo tanto pasa de largo el if.
+      for (const key in newData) {
+        if (foundElement.hasOwnProperty(key)) {
+          foundElement[key] = newData[key];
+        }
+      }
 
       await fs.promises.writeFile(
         this.filePath,
