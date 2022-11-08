@@ -9,3 +9,6 @@ npm install
 npm run dev
 
 Y deberían poder correr el proyecto.
+
+
+No hay grandes modificaciones respecto al de la clase 12 de websockets, si no que se agrega un "container" más, y en src/services, unas funciones para manejar la creación de tablas de sql y las instancias de knex.
