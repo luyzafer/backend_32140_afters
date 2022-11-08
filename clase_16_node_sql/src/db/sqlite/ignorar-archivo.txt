@@ -1,0 +1,1 @@
+Este archivo está solo para que exista la carpeta en github, ya que acá se va a crear nuestra .sqlite
